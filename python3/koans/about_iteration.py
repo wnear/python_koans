@@ -40,8 +40,13 @@ class AboutIteration(Koan):
         mapping = map(self.add_ten, seq)
 
         self.assertNotEqual(list, mapping.__class__)
+<<<<<<< HEAD
         self.assertEqual(map, mapping.__class__)
         # In Python 3 built in iterator funcs return iteratable view objects
+=======
+        self.assertEqual(__, mapping.__class__)
+        # In Python 3 built in iterator funcs return iterable view objects
+>>>>>>> origin/master
         # instead of lists
 
         for item in mapping:
@@ -49,7 +54,7 @@ class AboutIteration(Koan):
 
         self.assertEqual([11,12,13], mapped_seq)
 
-        # None, iterator methods actually return objects of iter type in
+        # Note, iterator methods actually return objects of iter type in
         # python 3. In python 2 map() would give you a list.
 
     def test_filter_selects_certain_items_from_a_list(self):
@@ -116,7 +121,7 @@ class AboutIteration(Koan):
     # ------------------------------------------------------------------
 
     def test_all_iteration_methods_work_on_any_sequence_not_just_lists(self):
-        # Ranges are an iteratable sequence
+        # Ranges are an iterable sequence
         result = map(self.add_ten, range(1,4))
         self.assertEqual([11,12,13], list(result))
 
