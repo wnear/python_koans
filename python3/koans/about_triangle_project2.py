@@ -19,13 +19,8 @@ class AboutTriangleProject2(Koan):
         # with self.assertRaises(TriangleError):
         #     triangle(1, 1, 3)
 
-<<<<<<< HEAD
         # with self.assertRaises(TriangleError):
         #     triangle(2, 4, 2)
         pass
-=======
-        with self.assertRaises(TriangleError):
-            triangle(2, 5, 2)
->>>>>>> origin/master
 
 

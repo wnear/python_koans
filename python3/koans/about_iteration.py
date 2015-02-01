@@ -40,13 +40,8 @@ class AboutIteration(Koan):
         mapping = map(self.add_ten, seq)
 
         self.assertNotEqual(list, mapping.__class__)
-<<<<<<< HEAD
         self.assertEqual(map, mapping.__class__)
         # In Python 3 built in iterator funcs return iteratable view objects
-=======
-        self.assertEqual(__, mapping.__class__)
-        # In Python 3 built in iterator funcs return iterable view objects
->>>>>>> origin/master
         # instead of lists
 
         for item in mapping:

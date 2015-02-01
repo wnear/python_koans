@@ -49,11 +49,7 @@ class AboutComprehension(Koan):
     def test_creating_a_set_with_set_comprehension(self):
         comprehension = { x for x in 'aabbbcccc'}
 
-<<<<<<< HEAD
         self.assertEqual({'a','b','c'}, comprehension)  # remeber that set members are unique
-=======
-        self.assertEqual(__, comprehension)  # remember that set members are unique
->>>>>>> origin/master
 
     def test_creating_a_dictionary_with_dictionary_comprehension(self):
         dict_of_weapons = {'first': 'fear', 'second': 'surprise',
