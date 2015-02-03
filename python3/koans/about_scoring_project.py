@@ -35,6 +35,26 @@ from runner.koan import *
 def score(dice):
     # You need to write this method
     pass
+    totalscore = 0
+    for i in set(dice):
+        if dice.count(i)>2:
+            if i == 1:
+                totalscore = 1000
+            else:
+                totalscore = 100*i
+            for j in range(3):
+                dice.remove(i)
+            break
+    def numscore(n):
+        if n == 1:
+            return 100
+        elif n == 5:
+            return 50
+        else:
+            return 0
+    for i in dice:
+        totalscore += numscore(i)
+    return totalscore
 
 class AboutScoringProject(Koan):
     def test_score_of_an_empty_list_is_zero(self):

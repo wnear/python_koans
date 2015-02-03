@@ -14,18 +14,19 @@ class AboutMonkeyPatching(Koan):
 
     def test_as_defined_dogs_do_bark(self):
         fido = self.Dog()
-        self.assertEqual(__, fido.bark())
+        self.assertEqual('WOOF', fido.bark())
 
     # ------------------------------------------------------------------
 
     # Add a new method to an existing class.
     def test_after_patching_dogs_can_both_wag_and_bark(self):
-        def wag(self): return "HAPPY"
+        def wag(self): 
+            return "HAPPY"
         self.Dog.wag = wag
 
         fido = self.Dog()
-        self.assertEqual(__, fido.wag())
-        self.assertEqual(__, fido.bark())
+        self.assertEqual("HAPPY", fido.wag())
+        self.assertEqual("WOOF", fido.bark())
 
     # ------------------------------------------------------------------
 
@@ -35,7 +36,7 @@ class AboutMonkeyPatching(Koan):
         except Exception as ex:
             err_msg = ex.args[0]
 
-        self.assertRegexpMatches(err_msg, __)
+        self.assertRegexpMatches(err_msg, 'int')
 
     # ------------------------------------------------------------------
 
@@ -44,6 +45,6 @@ class AboutMonkeyPatching(Koan):
     def test_subclasses_of_built_in_classes_can_be_be_monkey_patched(self):
         self.MyInt.is_even = lambda self: (self % 2) == 0
 
-        self.assertEqual(__, self.MyInt(1).is_even())
-        self.assertEqual(__, self.MyInt(2).is_even())
+        self.assertEqual(False, self.MyInt(1).is_even())
+        self.assertEqual(True, self.MyInt(2).is_even())
 
