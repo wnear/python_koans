@@ -27,6 +27,16 @@ class Proxy:
 
     # WRITE CODE HERE
 
+    def __getattr__(self, attr_name):
+        try:
+            return self._obj.attr_name()
+        except AttributeError:
+            print('no attribute:'+attr_name)
+            return 
+
+    def __delattr__(self, attr_name):
+        del self._obj.attr_name
+
 # The proxy object should pass the following Koan:
 #
 class AboutProxyObjectProject(Koan):
@@ -35,13 +45,11 @@ class AboutProxyObjectProject(Koan):
         tv = Proxy(Television())
 
         self.assertTrue(isinstance(tv, Proxy))
-
     def test_tv_methods_still_perform_their_function(self):
         tv = Proxy(Television())
 
         tv.channel = 10
         tv.power()
-
         self.assertEqual(10, tv.channel)
         self.assertTrue(tv.is_on())
 
@@ -76,7 +84,7 @@ class AboutProxyObjectProject(Koan):
         tv.power()
         tv.channel = 48
         tv.power()
-
+        print("test proxy counts method calls, ")
         self.assertEqual(2, tv.number_of_times_called('power'))
         self.assertEqual(1, tv.number_of_times_called('channel'))
         self.assertEqual(0, tv.number_of_times_called('is_on'))
